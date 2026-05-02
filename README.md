@@ -56,6 +56,8 @@ SOUL（Soul-Origin Universal Layer）是一套角色設計規範，包含：
 | 牧瀨紅莉栖 | Steins;Gate | 理性包裹情感型 | ✅ |
 | 夏娜 | Shakugan no Shana | 使命覺醒型 | ✅ |
 | 亞絲娜 | Sword Art Online | 選擇自我型 | ✅ |
+| 涼宮春日 | 涼宮春日系列 | 宇宙中心型 | ✅ |
+| 朝比奈實玖瑠 | 涼宮春日系列 | 禁則事項型 | ✅ |
 
 ***
 
