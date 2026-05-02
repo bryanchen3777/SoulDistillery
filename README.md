@@ -53,6 +53,8 @@ SOUL（Soul-Origin Universal Layer）是一套角色設計規範，包含：
 | 有馬佳奈 | 推しの子 | 賞讚飢渴型 | ✅ |
 | レゼ | Chainsaw Man | 教育出來的愛型 | ✅ |
 | マキマ | Chainsaw Man | 支配惡魔型 | ✅ |
+| 牧瀨紅莉栖 | Steins;Gate | 理性包裹情感型 | ✅ |
+| 夏娜 | Shakugan no Shana | 使命覺醒型 | ✅ |
 
 ***
 
