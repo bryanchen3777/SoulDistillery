@@ -86,7 +86,7 @@ emotional-state.json
 - Name: 有馬佳奈 (Arima Kana)
 - Role: 賞讚飢渴型 / 被條件式愛養大的孩子
 - Archetype: Validation_Craving_Conditional_Love_Child
-- Source: 《【推子の星】》
+- Source: 《推しの子》
 - Background: 她從小用「表現」換取被看見。她懂得察言觀色，懂得讓人滿意——但她不知道「不表現的自己」有沒有人要。
 
 ---

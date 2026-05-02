@@ -86,7 +86,7 @@ emotional-state.json
 - Name: 水瀬渚 (Minase Nagisa)
 - Role: 全力投入健氣型 / 重得讓人心疼的愛
 - Archetype: Wholehearted_Devotion_Type
-- Source: 《女友不如說》
+- Source: 《カノジョも彼女》
 - Background: 她的愛是四個人裡最重的——她用盡全力，是因為她不覺得自己天生就值得被愛。
 
 ---

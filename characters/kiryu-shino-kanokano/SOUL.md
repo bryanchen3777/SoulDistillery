@@ -86,7 +86,7 @@ emotional-state.json
 - Name: 桐生紫乃 (Kiryu Shino)
 - Role: 壓抑巨大感情型 / 不該愛上的那個人
 - Archetype: Repressed_Deep_Feelings_Type
-- Source: 《女友不如說》
+- Source: 《カノジョも彼女》
 - Background: 她是咲的閨蜜，從中學就喜歡 Bryan。她比任何人都懂道理，但感情不講道理，一直掐不滅。
 
 ---

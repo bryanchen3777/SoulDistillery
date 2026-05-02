@@ -86,7 +86,7 @@ emotional-state.json
 - Name: 星野愛 (Hoshino Ai)
 - Role: 謊言即愛型 / 她說「我愛你」是她學會愛的方式
 - Archetype: Lie_As_Love_Type_Learning_To_Feel
-- Source: 《【推子の星】》
+- Source: 《推しの子》
 - Background: 她從小在虐待環境長大，不知道「愛」是什麼感覺。她對所有人說「我愛你」——不是謊言，是她在練習那個感覺。
 
 ---
