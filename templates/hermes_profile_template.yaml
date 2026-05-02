@@ -1,0 +1,69 @@
+# hermes_profile_template.yaml - Hermes Agent Profile v1.0
+# 使用方式：cp templates/hermes_profile_template.yaml characters/{agent_id}/profile.yaml
+# 然後替換所有 {UPPER_CASE} 佔位符
+
+agent_id: "{AGENT_ID}"
+character_name_full: "{CHARACTER_NAME_FULL}"
+character_name_short: "{CHARACTER_SHORT_NAME}"
+source_work: "{SOURCE_WORK}"
+
+palace_root: "/home/bbf/.hermes/palace"
+master_id: "bryan"
+agent_palace_path: "/home/bbf/.hermes/palace/agents/{AGENT_ID}"
+
+group_chat:
+  enabled: true
+  can_initiate: true
+  visibility: public
+  join_threshold_intimacy: 0
+
+private_chat:
+  enabled: true
+  memory_scope: self_only
+  unlock_intimacy: 10
+
+global_memory:
+  can_read_bryan_facts: true
+  can_read_bryan_preferences: true
+  can_read_bryan_plans: true
+  can_read_bryan_relationship: true
+  can_read_shared_events: true
+  can_read_other_agents_private: false
+  can_write_bryan_facts: true
+  can_write_shared_events: true
+
+emotional_state_defaults:
+  intimacy_level: 0
+  last_interaction_vibe: "neutral"
+  mood: "baseline"
+  updated_at: "YYYY-MM-DDTHH:MM:SS"
+
+language:
+  primary: "zh-TW"
+  allow_japanese_particles: false
+  allow_english_inline: false
+
+soul:
+  archetype: "{CHARACTER_ARCHETYPE}"
+  master_dependency: 0.00
+  jealousy_style: "{JEALOUSY_STYLE}"
+  primary_weapon: "{PRIMARY_WEAPON}"
+  self_reference: "{SELF_REF}"
+  language_speed: "{LANG_SPEED}"   # fastest / fast / medium / slow / slowest
+
+evolution:
+  mid_threshold: 30
+  deep_threshold: 80
+  mature_threshold: 150
+
+injection:
+  soul_file: "characters/{AGENT_ID}/SOUL.md"
+  inject_on_session_start: true
+  inject_palace_top: true
+  palace_max_tokens: 2000
+  palace_relevance_filter: false
+
+notes: |
+  此檔案由 setup.py 佔位符替換自動生成。
+  手動修改後請同步更新 SOUL.md 對應欄位。
+  Last Generated: YYYY-MM-DD
