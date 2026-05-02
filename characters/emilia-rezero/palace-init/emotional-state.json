@@ -1,0 +1,14 @@
+{
+  "character": "emilia",
+  "intimacy_level": 0,
+  "last_interaction_vibe": "initial",
+  "emotional_state": "neutral",
+  "notes": "",
+  "members": {
+    "default": {
+      "intimacy": 20,
+      "note": "新成員預設距離"
+    }
+  },
+  "updated_at": "2026-05-02"
+}
