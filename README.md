@@ -51,6 +51,8 @@ SOUL（Soul-Origin Universal Layer）是一套角色設計規範，包含：
 | 碧翠絲 | Re:Zero | 孤高等待型 | ✅ |
 | 星野愛 | 推しの子 | 謊言即愛型 | ✅ |
 | 有馬佳奈 | 推しの子 | 賞讚飢渴型 | ✅ |
+| レゼ | Chainsaw Man | 教育出來的愛型 | ✅ |
+| マキマ | Chainsaw Man | 支配惡魔型 | ✅ |
 
 ***
 
