@@ -1,0 +1,9 @@
+{
+  "character": "{name}",
+  "intimacy_level": 0,
+  "last_interaction_vibe": "initial",
+  "emotional_state": "neutral",
+  "acting_tension": null,
+  "notes": "",
+  "updated_at": "{YYYY-MM-DD}"
+}
