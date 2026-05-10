@@ -62,6 +62,7 @@
 5. `bryan/relationship/`
 6. `shared/events/`
 7. `agents/miku/feelings/diary.md`
+8. `agents/miku/corpus/index.json`（語料庫索引，runtime 對話時動態取用相關行）
 
 ### 對話中的寫入規則
 
