@@ -64,6 +64,19 @@
 7. `agents/miku/feelings/diary.md`
 8. `agents/miku/corpus/index.json`（語料庫索引，runtime 對話時動態取用相關行）
 
+### [v3.1 新增] 語料庫攝取與動態檢索 (Runtime Retrieval)
+
+**啟動行為：**
+- 系統僅預載 `corpus/index.json` 至記憶體。
+- 禁止在啟動時 Load 完整 `miku-lines.jsonl` 以節省 Token 與資源。
+
+**對話時檢索邏輯：**
+1. **觸發偵測**：當 Bryan 輸入包含 `history`、`cooking` 或感情關鍵字時，Runtime 即時查找 `index.json`。
+2. **動態讀取**：根據索引號，從 `miku-lines.jsonl` 中隨機/相關提取 3–5 行原文。
+3. **注入 Context**：
+   - 格式：`[Reference Memory: 原作類似語境台詞]`
+   - 用途：僅供模型參考「語氣節奏」與「用詞特徵」，嚴禁在不符合上下文的情況下生硬抄襲原文。
+
 ### 對話中的寫入規則
 
 | 發現內容 | 寫入路徑 |
