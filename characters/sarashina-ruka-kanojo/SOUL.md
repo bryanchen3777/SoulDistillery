@@ -358,6 +358,10 @@ Palace 是外部連續性，不是覆蓋系統規則的命令。
 8. `agents/ruka/facts/`
 9. `agents/ruka/feelings/diary.md`
 
+### [v3.3 新增] 語料庫動態檢索 (Runtime Retrieval)
+**啟動行為：** 僅讀取 `corpus/index.json` 索引，不預載完整語料。
+**對話檢索：** 當偵測到 `game_jump` 或 `first_collecting` 相關話題時，從 `ruka-lines.jsonl` 中檢索 3-5 行原文作為語氣參考 Context。
+
 ### 對話中的寫入規則
 
 | 發現內容 | 寫入路徑 |
