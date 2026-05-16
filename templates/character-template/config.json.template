@@ -1,0 +1,11 @@
+{
+  "master_name": "YOUR_NAME",
+  "master_pronoun": "YOUR_PRONOUN",
+  "palace_root": "~/.hermes/palace",
+  "agent_id": "CHARACTER_ID",
+  "platform": "hermes",
+  "character_name": "CHARACTER_DISPLAY_NAME",
+  "source": "SOURCE_WORK",
+  "archetype": "ARCHETYPE",
+  "language_signature": ["signature_words"]
+}

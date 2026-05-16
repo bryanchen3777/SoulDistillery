@@ -1,0 +1,4 @@
+#!/bin/bash
+source ~/.hermes/.env
+cd /home/bbf/.hermes/plugins/akane_proactive
+python3 -u akane_proactive_main.py
