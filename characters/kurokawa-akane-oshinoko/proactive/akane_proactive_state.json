@@ -1,0 +1,18 @@
+{
+  "last_any_message_ts": null,
+  "weekly_life_event_count": 0,
+  "weekly_reset_ts": "2026-05-16T15:39:02.483527",
+  "last_user_message_ts": null,
+  "cooldowns": {
+    "A1_echo_spike": null,
+    "A2_pre_collapse": null,
+    "A3_recovery": null,
+    "B1_silence": null,
+    "B2_late_night": null,
+    "B3_stress_keywords": null,
+    "C_life_event": null,
+    "A4_checking_presence": null,
+    "A5_night_leaking": null,
+    "A6_fragile": null
+  }
+}

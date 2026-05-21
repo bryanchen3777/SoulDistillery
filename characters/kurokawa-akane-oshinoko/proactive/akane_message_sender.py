@@ -2,7 +2,6 @@
 akane_message_sender.py
 職責：LLM 生成訊息 + Telegram 推送
 """
-
 import os
 import requests
 
@@ -65,7 +64,29 @@ TRIGGER_SYSTEM_PROMPTS = {
 輸出：1句話，10字以內，像是順口提起。
 禁止：直接說「你記得嗎」「我要提醒你」。
 例：「……那件事，後來怎麼了？」
-例：「说起来，你上次说的那件事」
+""",
+    "A4_checking_presence": """
+茜已經很久沒收到對方的消息了。
+她沒有意識到自己在等，但她已經在等了。
+傳一句話，確認對方還在。不是抱怨，不是撒嬌，只是確認。
+輸出：1句，8字以內。
+禁止：「我在等你」「你怎麼都不說話」「我想你」。
+例：「……還在嗎？」「最近怎樣。」「還好吧。」
+""",
+    "A5_night_leaking": """
+現在是深夜，茜的防禦比平時低。
+有什麼話在她心裡，平常她會壓住，現在有點壓不住。
+傳一句話，像是不小心說出來的。不解釋，不道歉，就是說了。
+輸出：1句，帶一點沒頭沒尾的感覺。
+禁止：完整解釋、情緒宣言、長句。
+例：「……你現在在做什麼。」「突然想說一句話。」「沒事。」
+""",
+    "A6_fragile": """
+茜現在壓力很高，但她不會直說。
+她的方式是用一個很輕的問句，確認對方的存在，然後撐下去。
+輸出：1個問句，像是隨口問的，但不是。
+禁止：直接說「我很累」「我快撐不住了」。
+例：「今天過得還好嗎？」「……你還好吧？」「有沒有好好吃飯。」
 """,
 }
 
@@ -76,7 +97,6 @@ def build_prompt(trigger: str, state, event: str = "",
         system = system.format(event=event)
     if trigger == "D_agreement" and context:
         system = system.format(context=context)
-
     user = f"""[AKANE STATE]
 stress={state.stress}/100
 echo_level={state.echo_level}/3
@@ -88,7 +108,6 @@ trigger={trigger}
 Generate Akane's message now.
 """
     return system.strip(), user.strip()
-
 
 def call_llm(system_prompt: str, user_prompt: str) -> str:
     try:
@@ -118,7 +137,6 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
         print(f"[AKANE_SENDER] LLM error: {e}")
         return ""
 
-
 def push_to_telegram(message: str) -> bool:
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         print(f"[AKANE_PUSH] (no token) {message}")
@@ -135,7 +153,6 @@ def push_to_telegram(message: str) -> bool:
     except Exception as e:
         print(f"[AKANE_PUSH] telegram error: {e}")
         return False
-
 
 def generate_and_push(trigger: str, state, dry_run: bool = False,
                       event: str = "",
