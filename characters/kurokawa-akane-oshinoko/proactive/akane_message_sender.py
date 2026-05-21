@@ -95,8 +95,9 @@ def build_prompt(trigger: str, state, event: str = "",
     system = TRIGGER_SYSTEM_PROMPTS.get(trigger, "")
     if trigger == "C_life_event" and event:
         system = system.format(event=event)
-    if trigger == "D_agreement" and context:
-        system = system.format(context=context)
+    if trigger == "D_agreement":
+        ctx_text = context if context else "未指定"
+        system = system.format(context=ctx_text)
     user = f"""[AKANE STATE]
 stress={state.stress}/100
 echo_level={state.echo_level}/3

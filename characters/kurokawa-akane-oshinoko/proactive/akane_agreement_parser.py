@@ -19,7 +19,7 @@ DETECTION_PATTERNS = [
     r"你要記得.{1,30}",
     r"我們說好.{1,30}",
     r"如果.{1,20}超過.{1,10}(天|小時|hour|day)",
-    r"(提醒|告訴)我.{1,20}",
+    r"(提醒|告訴)我.{1,20}(好嗎|可以嗎|一下|喔|呢|呗)",
     r"你能不能.{1,20}(提醒|告訴|說)",
     r"約好.{1,20}",
 ]
@@ -76,9 +76,15 @@ def parse_agreement_with_llm(message: str) -> dict | None:
         choices = resp.json().get("choices", [])
         if choices and len(choices) > 0:
             raw = choices[0].get("message", {}).get("content", "").strip()
+        # Strip possible markdown fences
+        raw = re.sub(r"```json|```", "", raw).strip()
         parsed = json.loads(raw)
         if parsed.get("type") is None:
             return None
+        if "params" not in parsed:
+            parsed["params"] = {}
+        if "cooldown_hours" not in parsed:
+            parsed["cooldown_hours"] = 12
         return parsed
     except Exception as e:
         print(f"[AGREEMENT_PARSER] LLM error: {e}")
