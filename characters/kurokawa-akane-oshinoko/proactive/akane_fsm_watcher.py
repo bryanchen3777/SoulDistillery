@@ -39,7 +39,8 @@ def check_fsm_triggers(prev: AkaneState, curr: AkaneState,
 
     if (prev.emotional_state == "SELF_SACRIFICE_MODE"
             and curr.emotional_state != "SELF_SACRIFICE_MODE"):
-        results.append("A3_recovery")
+        if cool_ok("A3_recovery"):
+            results.append("A3_recovery")
 
     derived = getattr(curr, "derived_emotional_state", "stable")
 
