@@ -8,7 +8,7 @@ from akane_state import AkaneState
 COOLDOWNS = {
     "A1_echo_spike":        timedelta(hours=4),
     "A2_pre_collapse":      timedelta(hours=6),
-    "A3_recovery":          timedelta(hours=0),
+    "A3_recovery":          timedelta(hours=2),
     "A4_checking_presence": timedelta(hours=8),
     "A5_night_leaking":     timedelta(hours=6),
     "A6_fragile":           timedelta(hours=4),
