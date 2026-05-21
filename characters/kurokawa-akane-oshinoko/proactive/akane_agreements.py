@@ -126,18 +126,17 @@ def _check_topic_absence(agr: Dict) -> tuple[bool, str]:
     for line in content.split("\n"):
         if any(kw in line for kw in keywords):
             try:
-                date_str = line.split("|").replace("**","").strip()
+                date_str = line.split("|")[0].replace("**", "").strip()
                 dt = datetime.strptime(date_str, "%Y-%m-%d %H:%M")
                 if last_mention is None or dt > last_mention:
                     last_mention = dt
             except Exception:
                 pass
-    if last_mention:
-        elapsed_days = (datetime.now() - last_mention).days
-        if elapsed_days >= days:
-            return True, f"{elapsed_days} 天沒提到相關話題"
-    elif last_mention is None:
-        return True, f"從未提到相關話題"
+    if last_mention is None:
+        return True, "從未提到相關話題"
+    elapsed_days = (datetime.now() - last_mention).days
+    if elapsed_days >= days:
+        return True, f"{elapsed_days} 天沒提到相關話題"
     return False, ""
 
 # ─────────────────────────────
