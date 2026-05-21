@@ -9,7 +9,7 @@ TELEGRAM_TOKEN   = os.environ.get("AKANE_TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID  = os.environ.get("AKANE_TELEGRAM_CHAT_ID", "")
 MINIMAX_API_KEY  = os.environ.get("MINIMAX_API_KEY", "")
 MINIMAX_MODEL    = os.environ.get("MINIMAX_MODEL", "MiniMax-M2.7")
-MINIMAX_URL      = "https://api.minimax.io/anthropic/v1/messages"
+MINIMAX_URL      = "https://api.minimax.io/v1/text/chatcompletion_v2"
 
 TRIGGER_SYSTEM_PROMPTS = {
     "A1_echo_spike": """
@@ -116,22 +116,20 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
             headers={
                 "Authorization": f"Bearer {MINIMAX_API_KEY}",
                 "Content-Type": "application/json",
-                "x-api-key": MINIMAX_API_KEY,
-                "anthropic-version": "2023-06-01",
             },
             json={
                 "model": MINIMAX_MODEL,
                 "max_tokens": 500,
-                "system": system_prompt,
+                "prompt": system_prompt,
                 "messages": [{"role": "user", "content": user_prompt}],
             },
             timeout=30,
         )
         resp.raise_for_status()
         data = resp.json()
-        for block in data.get("content", []):
-            if block.get("type") == "text":
-                return block.get("text", "").strip()
+        choices = data.get("choices", [])
+        if choices and len(choices) > 0:
+            return choices[0].get("message", {}).get("content", "").strip()
         return ""
     except Exception as e:
         print(f"[AKANE_SENDER] LLM error: {e}")

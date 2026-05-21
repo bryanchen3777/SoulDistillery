@@ -12,7 +12,7 @@ from akane_agreements import add_agreement
 
 MINIMAX_API_KEY = os.environ.get("MINIMAX_API_KEY", "")
 MINIMAX_MODEL   = os.environ.get("MINIMAX_MODEL", "MiniMax-M2.7")
-MINIMAX_URL     = "https://api.minimax.io/anthropic/v1/messages"
+MINIMAX_URL     = "https://api.minimax.io/v1/text/chatcompletion_v2"
 
 DETECTION_PATTERNS = [
     r"如果我.{1,20}(就|你要|記得|提醒|告訴我)",
@@ -61,13 +61,11 @@ def parse_agreement_with_llm(message: str) -> dict | None:
             headers={
                 "Authorization": f"Bearer {MINIMAX_API_KEY}",
                 "Content-Type":  "application/json",
-                "x-api-key":     MINIMAX_API_KEY,
-                "anthropic-version": "2023-06-01",
             },
             json={
                 "model":       MINIMAX_MODEL,
                 "max_tokens":  200,
-                "system":      PARSE_SYSTEM_PROMPT,
+                "prompt":      PARSE_SYSTEM_PROMPT,
                 "messages":    [{"role": "user",
                                  "content": f"使用者說：「{message}」"}],
             },
@@ -75,10 +73,9 @@ def parse_agreement_with_llm(message: str) -> dict | None:
         )
         resp.raise_for_status()
         raw = ""
-        for block in resp.json().get("content", []):
-            if block.get("type") == "text":
-                raw = block["text"].strip()
-                break
+        choices = resp.json().get("choices", [])
+        if choices and len(choices) > 0:
+            raw = choices[0].get("message", {}).get("content", "").strip()
         parsed = json.loads(raw)
         if parsed.get("type") is None:
             return None
